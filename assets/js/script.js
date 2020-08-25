@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   // make the grid
   // if($('body').is('.homefeed')){
-  window.localStorage.setItem('hasClickthrough', 'false');
+  // window.localStorage.setItem('hasClickthrough', 'false');
   alert(localStorage.getItem('hasClickthrough'));
   // alert(hasClickthrough)
 
@@ -384,7 +384,7 @@ $(document).ready(function() {
     localStorage.setItem("imageURL", image);
 
 
-    localStorage.setItem('hasClickthrough', 'true');
+    window.localStorage.setItem('hasClickthrough', 'true');
 
     alert(localStorage.getItem('hasClickthrough'));
 
