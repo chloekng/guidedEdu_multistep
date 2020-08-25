@@ -186,15 +186,46 @@ $(document).ready(function() {
     $(".modal-content-cards").css("margin-left", "100%")
 
 
-    // if (localStorage.getItem('hasClickthrough') == 'true') {
-    //   // alert("h")
+    if (sessionStorage.getItem('hasClickthrough') == 'true') {
+      $(modalDot1).removeClass("modal-dot-active");  
+      $(modalDot2).addClass("modal-dot-active");  
+      $(".modal-content-cards").css("margin-left", "-100%")
 
-    // } else {
-    //   // this is the first step
-    //   $(modalDot1).addClass("modal-dot-active");
-    //   $(".modal-content-cards").css("margin-left", "100%")
+            // scale up the pin
+      $(".masonry").not(".modal-save").css("animation-name", "scaleUp");
+      $(".masonry").css("animation-duration", "var(--short)");
+      $(".masonry").css("animation-iteration-count", "1");
+      $(".masonry").css("animation-fill-mode", "forwards");
 
-    // }
+
+      //animate the save button 
+      let modalSave = document.createElement("div");
+      modalSave.className = "modal-save";
+      modalSave.innerHTML = "Save";
+      $(".item-main").append(modalSave);
+
+
+      $(".item-main").css("animation-name", "null")
+
+      $(".modal-save").css("animation-name", "buttonClickedHF");
+      $(".modal-save").css("animation-duration", "1.5s");
+      $(".modal-save").css("animation-iteration-count", "infinite");
+      $(".modal-save").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
+
+
+      $(".handSvg").css("top", "28%");
+      $(".handSvg").css("left", "64%");
+      $(".handSvg").css("animation-name", "clicking");
+      $(".handSvg").css("animation-duration", "1.5s");
+      $(".handSvg").css("animation-iteration-count", "infinite");
+      $(".handSvg").css("animation-direction", "normal");
+
+    } else {
+      // this is the first step
+      $(modalDot1).addClass("modal-dot-active");
+      $(".modal-content-cards").css("margin-left", "100%")
+
+    }
 
 
     $(".modal-button-0").click(function() {
