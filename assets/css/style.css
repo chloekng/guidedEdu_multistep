@@ -17,6 +17,13 @@ body {
 
 * { box-sizing: border-box; }
 
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
 /*.app {
   display: -webkit-box;
   display: -webkit-flex;
@@ -475,7 +482,7 @@ h3 {
 
 .modal-closeup {
   width: 180px;
-  height: 96px;
+  height: 116px;
   border: 1px solid white;
   border-radius: 0px 16px 0px 0px;
 /*  margin-left: -5;*/

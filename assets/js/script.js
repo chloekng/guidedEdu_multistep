@@ -259,7 +259,6 @@ $(document).ready(function() {
   if ($('body').is('.closeupPage')) {
 
 
-
     // closeup & save button graphic
     let modalCloseup = document.createElement("div");
     modalCloseup.className = "modal-closeup"
@@ -283,7 +282,9 @@ $(document).ready(function() {
     // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
     $(modalDot2).addClass("modal-dot-active");  
-    $(".modal-content-cards").css("margin-left", "-100%") 
+    $(".modal-content-cards").css("margin-left", "-100%");
+
+
 
     // text
 
@@ -416,7 +417,7 @@ $(document).ready(function() {
   $(".back").click(function() {
 
 
-    window.location.href = "";
+    window.location.href = "index.html";
     
 
     // if (hasClickthrough) {
