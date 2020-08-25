@@ -405,7 +405,7 @@ $(document).ready(function() {
 
     alert(localStorage.getItem('hasClickthrough'));
 
-    window.location.href = "index.html";
+    window.location.href = "";
     
 
     // if (hasClickthrough) {
