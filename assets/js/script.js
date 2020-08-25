@@ -3,7 +3,7 @@ $(document).ready(function() {
   // make the grid
   // if($('body').is('.homefeed')){
   // window.localStorage.setItem('hasClickthrough', 'false');
-  alert(localStorage.getItem('hasClickthrough'));
+  // alert(localStorage.getItem('hasClickthrough'));
   // alert(hasClickthrough)
 
 
@@ -135,6 +135,7 @@ $(document).ready(function() {
   if ($('body').is('.homefeedPage')) {
 
 
+
     //masonry bg for modal
     let modalMasonry = document.createElement("div");
     modalMasonry.className = "masonry";
@@ -178,9 +179,18 @@ $(document).ready(function() {
     // $("#main").css("animation-direction", "alternate");
 
 
-    // this is the first step
-    $(modalDot1).addClass("modal-dot-active");
-    $(".modal-content-cards").css("margin-left", "100%")
+    alert(localStorage.getItem('hasClickthrough'))
+
+    if (localStorage.getItem('hasClickthrough') == 'true') {
+      alert("h")
+
+    } else {
+      // this is the first step
+      $(modalDot1).addClass("modal-dot-active");
+      $(".modal-content-cards").css("margin-left", "100%")
+
+    }
+
 
     $(".modal-button-0").click(function() {
 
