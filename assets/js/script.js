@@ -320,80 +320,6 @@ $(document).ready(function() {
 
 
 
-
-  //got it button
-  // $(".modal-button").click(function() {
-
-  //   // $(".masonry-bg").addClass("hide");
-  //   // $(".masonry-bg").hide()
-
-  //   $(".masonry-bg" ).slideUp(160);
-  //   $(".masonry").hide(85);
-  //   $(".modal-closeup").hide(85);
-  //   $(".handSvg").hide(85);
-  //   $(".modal-button").hide(0);
-  //   $(".modal-text").hide(0);
-  //   $(".modal-subtext").hide(0);
-  //   $(".modal-X").hide(0);
-  //   $(".modal-dots-container").hide(0);
-
-  //   let modalCollapsed = document.createElement("div");
-  //   modalCollapsed.className = "modal-collapsed";
-  
-  //   $(".modal").append(modalCollapsed);
-
-
-  //   let modalTextCollapsed = document.createElement("div");
-  //   modalTextCollapsed.className = "modal-text-collapsed";
-
-  //   let modalTextCollapsedA = document.createElement("div");
-  //   modalTextCollapsedA.innerHTML = "Come back for tips on how to use Pinterest!";
-  //   $(modalTextCollapsed).append(modalTextCollapsedA);
-  //   $(modalCollapsed).append(modalTextCollapsed);
-  //   // $(modalTextCollapsedA).css("animation-name", "fade");
-  //   // $(modalTextCollapsedA).css("animation-duration", "4s");
-  //   // $(modalTextCollapsedA).css("animation-fill-mode", "both");
-  //   // $(modalTextCollapsedA).css("animation-direction", "alternate");
-  //   // $(modalTextCollapsedA).css("animation-iteration-count", "infinite");
-  //   // $(modalTextCollapsedA).css("position", "absolute");
-
-  //   // let modalTextCollapsedB = document.createElement("div");
-  //   // modalTextCollapsedB.innerHTML = "Come back here for tips on how to use Pinterest";
-  //   // $(modalTextCollapsed).append(modalTextCollapsedB);
-  //   // // $(modalTextCollapsedTips).hide(0);
-  //   // $(modalTextCollapsedB).css("position", "absolute");
-  //   // $(modalTextCollapsedB).css("animation-name", "fade");
-  //   // $(modalTextCollapsedB).css("animation-duration", "4s");
-  //   // $(modalTextCollapsedB).css("animation-fill-mode", "both");
-  //   // $(modalTextCollapsedB).css("animation-direction", "alternate-reverse");
-  //   // $(modalTextCollapsedB).css("animation-iteration-count", "infinite");
-
-
-  //   let chevronSvg = document.createElementNS("http://www.w3.org/2000/svg","svg");
-  //   $(modalCollapsed).append(chevronSvg);
-  //   chevronSvg.setAttributeNS(null, 'width', 16);
-  //   chevronSvg.setAttributeNS(null, 'height', 16);
-  //   chevronSvg.setAttributeNS(null, 'viewBox', '0 0 16 16');
-  //   chevronSvg.innerHTML = '<path fill-rule="evenodd" clip-rule="evenodd" d="M0.439333 9.47C0.146667 9.76 0 10.1393 0 10.518C0 10.8973 0.146667 11.2767 0.439333 11.566C1.02533 12.1447 1.97467 12.1447 2.56067 11.566L8 6.192L13.4393 11.566C14.0253 12.1447 14.9747 12.1447 15.5607 11.566C16.1467 10.9873 16.1467 10.048 15.5607 9.47L8 2L0.439333 9.47Z" fill="white"/>'
-  //   chevronSvg.setAttribute("class","chevronSvg");
-  //   // $(".chevronSvg").css("border", "1px solid tomato");
-  //   // $(".chevronSvg").css("top", "20%");
-  //   // $(".chevronSvg").css("left", "60%");
-
-  //   // $(chevronSvg).click(function() {
-  //   //   console.log("hi")
-  //   // })
-  
-
-
-  // });
-
-  // }
-
-
-
-
-
   // grid item to closeup
   $(".grid-item").click(function() {
 
@@ -401,7 +327,9 @@ $(document).ready(function() {
 
     localStorage.setItem("imageURL", image);
 
-    window.location.href = "closeup.html";    
+
+    window.location.href = "closeup.html";
+    sessionStorage.setItem("hasClickthrough", "true");    
 
 
 
