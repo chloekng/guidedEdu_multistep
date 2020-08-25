@@ -181,16 +181,20 @@ $(document).ready(function() {
     $(".item-main").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
     // $("#main").css("animation-direction", "alternate");
 
+    // this is the first step
+    $(modalDot1).addClass("modal-dot-active");
+    $(".modal-content-cards").css("margin-left", "100%")
 
-    if (localStorage.getItem('hasClickthrough') == 'true') {
-      alert("h")
 
-    } else {
-      // this is the first step
-      $(modalDot1).addClass("modal-dot-active");
-      $(".modal-content-cards").css("margin-left", "100%")
+    // if (localStorage.getItem('hasClickthrough') == 'true') {
+    //   // alert("h")
 
-    }
+    // } else {
+    //   // this is the first step
+    //   $(modalDot1).addClass("modal-dot-active");
+    //   $(".modal-content-cards").css("margin-left", "100%")
+
+    // }
 
 
     $(".modal-button-0").click(function() {
