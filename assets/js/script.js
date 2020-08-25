@@ -6,6 +6,9 @@ $(document).ready(function() {
   // alert(localStorage.getItem('hasClickthrough'));
   // alert(hasClickthrough)
 
+  // window.localStorage.setItem("hasClickthrough", "false");
+  // alert(localStorage.getItem("hasClickthrough"))
+
 
   var colcade = new Colcade( '.grid', {
     columns: '.grid-col',
@@ -179,8 +182,6 @@ $(document).ready(function() {
     // $("#main").css("animation-direction", "alternate");
 
 
-    alert(localStorage.getItem('hasClickthrough'))
-
     if (localStorage.getItem('hasClickthrough') == 'true') {
       alert("h")
 
@@ -252,6 +253,8 @@ $(document).ready(function() {
 
 
   if ($('body').is('.closeupPage')) {
+
+
 
     // closeup & save button graphic
     let modalCloseup = document.createElement("div");
@@ -393,11 +396,6 @@ $(document).ready(function() {
 
     localStorage.setItem("imageURL", image);
 
-
-    window.localStorage.setItem('hasClickthrough', 'true');
-
-    alert(localStorage.getItem('hasClickthrough'));
-
     window.location.href = "closeup.html";    
 
 
@@ -413,7 +411,6 @@ $(document).ready(function() {
 
   $(".back").click(function() {
 
-    alert(localStorage.getItem('hasClickthrough'));
 
     window.location.href = "";
     
