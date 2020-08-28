@@ -12,7 +12,6 @@ $(document).ready(function() {
   // duration: 800
   // });
 
-
   var colcade = new Colcade( '.grid', {
     columns: '.grid-col',
     items: '.grid-item'
@@ -232,13 +231,24 @@ $(document).ready(function() {
     //animate the save button 
     $(".item-main").append(modalSave);
 
+    var scaleUp = anime({
+    targets: '.masonry',
+    // translateY: 4,
+    scale: 2.5,
+    easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+
+
+    scaleUp.play();
 
     // scale up the pin
-    $(".masonry").not(".modal-save").css("animation-name", "scaleUp");
-    $(".masonry").css("animation-duration", "var(--short)");
-    $(".masonry").css("animation-iteration-count", "1");
-    $(".masonry").css("animation-fill-mode", "forwards");
-    $(".masonry").css("animation-direction", "normal");
+    // $(".masonry").not(".modal-save").css("animation-name", "scaleUp");
+    // $(".masonry").css("animation-duration", "var(--short)");
+    // $(".masonry").css("animation-iteration-count", "1");
+    // $(".masonry").css("animation-fill-mode", "forwards");
+    // $(".masonry").css("animation-direction", "normal");
 
 
 
@@ -365,7 +375,19 @@ $(document).ready(function() {
   }
 
   $(modalDot1).click(function() {
-    firstHFCard();
+
+
+    firstHFCard();    
+
+    var scaleDown = anime({
+      targets: '.masonry',
+      // translateY: -4,
+      scale: 1,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+    scaleDown.play();
   })
 
 
