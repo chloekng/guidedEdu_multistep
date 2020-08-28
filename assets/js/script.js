@@ -1,10 +1,24 @@
 $(document).ready(function() {
 
+  // const anime = require('animejs');
+  // import anime from 'animejs/lib/anime.es.js';
+
+
+  // anime({
+  // targets: 'div',
+  // translateX: 250,
+  // rotate: '1turn',
+  // backgroundColor: '#FFF',
+  // duration: 800
+  // });
+
 
   var colcade = new Colcade( '.grid', {
     columns: '.grid-col',
     items: '.grid-item'
   });
+
+
 
   // by default, hide the closeup
 
