@@ -33,6 +33,12 @@ body {
 }
 */
 
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /*NAVBAR*/
 
 .navBar {
@@ -345,11 +351,11 @@ body {
   cursor:pointer;
 }
 
-.closeup {
+/*.closeup {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+}*/
 
 .closeupContainer {
   width: 1016px;
@@ -601,7 +607,7 @@ h3 {
   0% {
   }
   100% {
-    transform: scale(2.5) translateY(4px)
+    transform: scale(2.5) translateY(4px);
   }
 }
 
