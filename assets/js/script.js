@@ -181,11 +181,10 @@ $(document).ready(function() {
     // $(".masonry").css("animation-fill-mode", "forwards");
     if ($(modalDot2).hasClass("modal-dot-active")) {
       modalSave.remove()
-      $(".masonry").css("animation-name", "scaleUp");
-      $(".masonry").css("animation-duration", "var(--short)");
-      $(".masonry").css("animation-iteration-count", "1");
-      // $(".masonry").css("animation-fill-mode", "backwards");
-      $(".masonry").css("animation-direction", "reverse");
+    //   $(".masonry").css("animation-name", "scaleUp");
+    //   $(".masonry").css("animation-duration", "var(--short)");
+    //   $(".masonry").css("animation-iteration-count", "1");
+    //   $(".masonry").css("animation-direction", "reverse");
 
 
     }
@@ -381,8 +380,8 @@ $(document).ready(function() {
 
     var scaleDown = anime({
       targets: '.masonry',
-      // translateY: -4,
       scale: 1,
+      duration: 500,
       easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
