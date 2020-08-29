@@ -172,26 +172,98 @@ $(document).ready(function() {
 
 
   function firstHFCard() {
+
+
+
+
     //masonry bg for modal
 
 
-    // $(".masonry").not(".modal-save").css("animation-name", "scaleUp");
-    // $(".masonry").css("animation-duration", "var(--short)");
-    // $(".masonry").css("animation-iteration-count", "1");
-    // $(".masonry").css("animation-fill-mode", "forwards");
-    if ($(modalDot2).hasClass("modal-dot-active")) {
-      modalSave.remove()
-    //   $(".masonry").css("animation-name", "scaleUp");
-    //   $(".masonry").css("animation-duration", "var(--short)");
-    //   $(".masonry").css("animation-iteration-count", "1");
-    //   $(".masonry").css("animation-direction", "reverse");
+
+    // if from closeup card special case 
+
+    if ($(modalCloseup).is(":visible")) {
+
+      $(".item").not(".item-main").css("opacity", "1");
+
+
+      var scaleDownModalCloseup = anime({
+        targets: '.modal-closeup',
+        opacity: 0,
+        scale: 1,
+        translateX: 12,
+        translateY: 14,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+
+      });
+
+      scaleDownModalCloseup.play();
+
+
+      var scaleDownCloseup = anime({
+        targets: '.item-main',
+        translateX: 0,
+        translateY: 0,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+      });
+
+    scaleDownCloseup.play();
+
+
+
+
+
+    } else {
+
+
+
 
 
     }
 
 
-    // pointer animation
+    // unhide masonry
+    // reset item-main position into masonry grid 
 
+
+
+
+
+    // global things that need to happen
+
+    if ($(modalDot2).hasClass("modal-dot-active")) {
+      modalSave.remove()
+
+
+    }
+
+    var scaleDown = anime({
+      targets: '.masonry',
+      scale: 1,
+      duration: 500,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+    scaleDown.play();
+
+
+    // reset pin scale up and down animation 
+
+    $(".item-main").css("animation-name", "pinClicked");
+    $(".item-main").css("animation-duration", "3s");
+    $(".item-main").css("animation-iteration-count", "infinite");
+    $(".item-main").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
+
+
+    // this is the first step
+    $(modalDot1).addClass("modal-dot-active");
+    $(modalDot2).removeClass("modal-dot-active");
+    $(".modal-content-cards").css("margin-left", "100%")
+
+    // pointer animation
     $(".handSvg").css("position", "absolute");
     $(".handSvg").css("top", "24%");
     $(".handSvg").css("left", "60%");
@@ -201,23 +273,27 @@ $(document).ready(function() {
     $(".handSvg").css("animation-direction", "alternate");
 
 
-    //masonry animation
-
-    $(".item-main").css("animation-name", "pinClicked");
-    $(".item-main").css("animation-duration", "3s");
-    $(".item-main").css("animation-iteration-count", "infinite");
-    $(".item-main").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
-    // $("#main").css("animation-direction", "alternate");
-
-    // this is the first step
-    $(modalDot1).addClass("modal-dot-active");
-    $(modalDot2).removeClass("modal-dot-active");
-    $(".modal-content-cards").css("margin-left", "100%")
-
-
 
 
   }
+
+  let modalCloseup = document.createElement("div");
+  modalCloseup.className = "modal-closeup"
+  masonryBg.append(modalCloseup);
+  $(modalCloseup).css("opacity", "0");
+  $(modalCloseup).hide();
+
+
+  
+  let modalCloseupLeft = document.createElement("div");
+  modalCloseupLeft.className = "modal-closeup-left";
+  modalCloseup.append(modalCloseupLeft);
+
+  let modalCloseupRight = document.createElement("div");
+  modalCloseupRight.className = "modal-closeup-right";
+  modalCloseup.append(modalCloseupRight);
+
+
 
   function secondHFCard() {
      // modal dot transition
@@ -225,16 +301,10 @@ $(document).ready(function() {
     $(modalDot2).addClass("modal-dot-active");  
     $(".modal-content-cards").css("margin-left", "-100%")
 
-
-
-    //animate the save button 
-    $(".item-main").append(modalSave);
-
     var scaleUp = anime({
-    targets: '.masonry',
-    // translateY: 4,
-    scale: 2.5,
-    easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+      targets: '.masonry',
+      scale: 2.5,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
 
@@ -242,17 +312,14 @@ $(document).ready(function() {
 
     scaleUp.play();
 
-    // scale up the pin
-    // $(".masonry").not(".modal-save").css("animation-name", "scaleUp");
-    // $(".masonry").css("animation-duration", "var(--short)");
-    // $(".masonry").css("animation-iteration-count", "1");
-    // $(".masonry").css("animation-fill-mode", "forwards");
-    // $(".masonry").css("animation-direction", "normal");
-
-
-
 
     $(".item-main").css("animation-name", "null")
+    $(".item-main").css("background-color", "rgba(255,255,255,0)")
+
+
+    //append the save button 
+    $(".item-main").append(modalSave);
+
 
     $(".modal-save").css("animation-name", "buttonClickedHF");
     $(".modal-save").css("animation-duration", "1.5s");
@@ -262,6 +329,80 @@ $(document).ready(function() {
 
     $(".handSvg").css("top", "28%");
     $(".handSvg").css("left", "64%");
+    $(".handSvg").css("animation-name", "clicking");
+    $(".handSvg").css("animation-duration", "1.5s");
+    $(".handSvg").css("animation-iteration-count", "infinite");
+    $(".handSvg").css("animation-direction", "normal");
+
+
+
+  }
+
+  function secondHFCard2() {
+     // modal dot transition
+    $(modalDot1).removeClass("modal-dot-active");  
+    $(modalDot2).addClass("modal-dot-active");  
+    $(".modal-content-cards").css("margin-left", "-100%")
+
+    // hide masonry
+
+    var scaleUp = anime({
+      targets: '.masonry',
+      scale: 2.5,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+    scaleUp.play();
+
+    $(".item").not(".item-main").css("opacity", "0");
+
+
+    $(".item-main").css("animation-name", "null");
+    $(".item-main").css("background-color", "rgba(255,255,255,.8");
+
+    var scaleUpCloseup = anime({
+      targets: '.item-main',
+      translateX: -40,
+      translateY: 4,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+    scaleUpCloseup.play();
+
+    // append closeup to modalCloseup
+
+    $(modalCloseup).show();
+
+    var scaleUpModalCloseup = anime({
+      targets: '.modal-closeup',
+      opacity: 1,
+      scale: 2.5,
+      translateX: -12,
+      translateY: -14,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+
+
+    scaleUpModalCloseup.play();
+
+
+    //append save button
+
+    $(modalCloseup).append(modalSave);
+
+
+    $(".modal-save").css("animation-name", "buttonClickedHF");
+    $(".modal-save").css("animation-duration", "1.5s");
+    $(".modal-save").css("animation-iteration-count", "infinite");
+    $(".modal-save").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
+
+
+    $(".handSvg").css("top", "28%");
+    $(".handSvg").css("left", "74%");
     $(".handSvg").css("animation-name", "clicking");
     $(".handSvg").css("animation-duration", "1.5s");
     $(".handSvg").css("animation-iteration-count", "infinite");
@@ -311,82 +452,12 @@ $(document).ready(function() {
   });
 
 
-  if ($('body').is('.closeupPage')) {
-
-
-    // closeup & save button graphic
-    let modalCloseup = document.createElement("div");
-    modalCloseup.className = "modal-closeup"
-    masonryBg.append(modalCloseup);
-
-
-    let modalCloseupLeft = document.createElement("div");
-    modalCloseupLeft.className = "modal-closeup-left";
-    modalCloseup.append(modalCloseupLeft);
-
-    let modalCloseupRight = document.createElement("div");
-    modalCloseupRight.className = "modal-closeup-right";
-    modalCloseup.append(modalCloseupRight);
-
-    let modalSave = document.createElement("div");
-    modalSave.className = "modal-save";
-    modalSave.innerHTML = "Save"
-    modalCloseupRight.append(modalSave);
-
-
-    // modal dot transition
-    $(modalDot1).removeClass("modal-dot-active");  
-    $(modalDot2).addClass("modal-dot-active");  
-    $(".modal-content-cards").css("margin-left", "-100%");
-
-
-
-    // text
-
-    // console.log($(".modal-text")[1]);
-
-    // $(".modal-text")[1].innerHTML = "Save ideas to collections";
-    // $(".modal-subtext")[1].innerHTML = "The more you save, the better our recommendations for you.";
-    // $(".modal-button")[1].innerHTML = "Got it";
-
-    //pointer animation 
-    $(".handSvg").css("position", "absolute");
-    $(".handSvg").css("top", "24%");
-    $(".handSvg").css("left", "64%");
-    $(".handSvg").css("animation-name", "clicking");
-    $(".handSvg").css("animation-duration", "1.5s");
-    $(".handSvg").css("animation-iteration-count", "infinite");
-    // $(".handSvg").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
-
-    // $(".handSvg").css("animation-direction", "alternate");
-
-    $(".modal-save").css("animation-name", "buttonClicked");
-    $(".modal-save").css("animation-duration", "1.5s");
-    $(".modal-save").css("animation-iteration-count", "infinite");
-    $(".modal-save").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
-
-    //save pops into a collection grid with little lines coming out and then board title swoops in
-
-
-
-
-
-  }
 
   $(modalDot1).click(function() {
 
 
     firstHFCard();    
 
-    var scaleDown = anime({
-      targets: '.masonry',
-      scale: 1,
-      duration: 500,
-      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
-
-    });
-
-    scaleDown.play();
   })
 
 
@@ -400,6 +471,8 @@ $(document).ready(function() {
     let image = $(this)[0].style.backgroundImage;
 
     $(".closeupImage").css('background-image', image);  
+
+    secondHFCard2();
 
 
     // localStorage.setItem("imageURL", image);

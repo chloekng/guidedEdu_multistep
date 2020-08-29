@@ -24,6 +24,7 @@ body {
   -o-transition: none !important;
 }
 
+
 /*.app {
   display: -webkit-box;
   display: -webkit-flex;
@@ -253,7 +254,7 @@ body {
   column-gap: 4px;
   width: 120%;
   height: 120%;
-  margin-top: -14%;
+  margin-top: -13%;
   margin-left: -10%;
   padding-top: 14%;
 
@@ -287,7 +288,7 @@ body {
   display: flex;
   flex-direction: row;
   width: 200%;
-  transition: var(--short);
+  transition: var(--medium);
   transition-timing-function: var(--easeInOut);
 /*  margin-left: 100%;*/
 }
@@ -360,7 +361,7 @@ body {
 .closeupContainer {
   width: 1016px;
   height: 40em;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
   border-radius: 32px;
   margin-top: 96px;
   display: flex;
@@ -487,21 +488,25 @@ h3 {
 /*MODAL CLOSEUP*/
 
 .modal-closeup {
-  width: 180px;
-  height: 116px;
-  border: 1px solid white;
-  border-radius: 0px 16px 0px 0px;
-/*  margin-left: -5;*/
+/*  width: 180px;
+  height: 116px;*/
+  width: 88px;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 0px 8px 0px 0px;
+/*  margin-left: -5;
   display: flex;
   flex-direction: row;
-  position: absolute;
 /*  top: 30px;*/
   bottom: -1px;
+  position: absolute;
+  left: 50%;
+  margin-left: -36px;
 }
 
 .modal-closeup-left {
-  background-color: #ffffff;
-  opacity: .8;
+/*  background-color: #ffffff;
+  opacity: .8;*/
   flex-grow: 1;
 
 }
@@ -518,28 +523,26 @@ h3 {
   color: #333333;
   border-radius: 32px; 
   font-size: 12px; 
+  position: relative;
+  display: inline-block;
 
 }
 
-.modal-closeup-right .modal-save {
-  position: absolute;
-  top: 6px;
-  right: 6px;
+.modal-closeup .modal-save {
+  top: -6px;
+  left: 52px;
 
 }
 
 
 .item-main .modal-save {
-  position: relative;
-  transform: scale(.4);
-  display: inline-block;
-/*  transform-origin: 0 0;*/
+
   top: -6px;
   right: -20px;
-/*  padding: 8px;*/
-/*  width: 100%;*/
 }
  
+
+
 
 /*ANIMATION*/
 
@@ -585,10 +588,10 @@ h3 {
 
 @keyframes pinClicked {
   0%{background: rgba(0,0,0,0) }
-  30% {background: #ffffff; transform: scale(1.3)}
-  50% {background: #ffffff; transform:scale(1.3)}
+  30% {background: rgba(255,255,255,.9); transform: scale(1.3)}
+  50% {background: rgba(255,255,255,.9); transform:scale(1.3)}
   /* 51% {transform: scale(1.2)} */
-  80% {background: #ffffff; transform: scale(1.3)}
+  80% {background: rgba(255,255,255,.9); transform: scale(1.3)}
   /* 90% {background: rgba(0,0,0,0)} */
   /* 80%{background: #ffffff} */
   100%{background: rgba(0,0,0,0) }
