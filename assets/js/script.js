@@ -461,6 +461,14 @@ $(document).ready(function() {
   })
 
 
+  $(modalDot2).click(function() {
+
+
+    secondHFCard();    
+
+  })
+
+
 
   // grid item to closeup
   $(".grid-item").click(function() {
@@ -487,6 +495,8 @@ $(document).ready(function() {
     $(".closeupContainer").hide();
     $(".back").hide()
 
+    firstHFCard();
+
 
 
   });
@@ -498,6 +508,17 @@ $(document).ready(function() {
 
 
   });
+
+  
+  let pulsar = document.createElement("div");
+  pulsar.className = "pulsar";
+  $(".saveButton").append($(pulsar));
+  $(pulsar).css("animation-name", "pulse");
+  $(pulsar).css("animation-duration", "5s");
+  $(pulsar).css("animation-iteration-count", "infinite");
+  // $(pulsar).css("animation-direction", "alternate");
+
+
 
   
 
