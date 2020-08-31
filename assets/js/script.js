@@ -1,17 +1,6 @@
 $(document).ready(function() {
 
-  // const anime = require('animejs');
-  // import anime from 'animejs/lib/anime.es.js';
-
-
-  // anime({
-  // targets: 'div',
-  // translateX: 250,
-  // rotate: '1turn',
-  // backgroundColor: '#FFF',
-  // duration: 800
-  // });
-
+  // make bg masonry
   var colcade = new Colcade( '.grid', {
     columns: '.grid-col',
     items: '.grid-item'
@@ -69,13 +58,14 @@ $(document).ready(function() {
   masonryBg.className = "masonry-bg";
   modal.append(masonryBg);
 
+  // make each modal content card
 
   let modalContentCards = document.createElement("div");
   modalContentCards.className = "modal-content-cards";
   modal.append(modalContentCards);
 
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 3; i++) {
 
     let modalContent = document.createElement("div");
     modalContent.className = "modal-content";
@@ -100,18 +90,22 @@ $(document).ready(function() {
       modalButton.className = "modal-button modal-button-0"
 
     } else if (i == 1) {
-      modalText.innerHTML = "Save ideas to collections";
+      modalText.innerHTML = "Save ideas to boards";
       modalSubtext.innerHTML = "The more you save, the better our recommendations for you.";
-      modalButton.innerHTML = "Got it";
+      modalButton.innerHTML = "Next";
       modalButton.className = "modal-button modal-button-1"
+
+    } else if (i == 2) {
+      modalText.innerHTML = "Make boards for all the projects in your life";
+      modalSubtext.innerHTML = "Every project begins with ideas.";
+      modalButton.innerHTML = "Got it";
+      modalButton.className = "modal-button modal-button-2"
 
     }
 
   }
 
-  // modalHeader = document.createElement("div");
-  // modalHeader.className = "modal-header";
-  // modal.append(modalHeader);
+  // make carousel dots 
 
   let modalDotsContainer = document.createElement("div");
   modalDotsContainer.className = "modal-dots-container";
@@ -125,10 +119,14 @@ $(document).ready(function() {
   modalDot2.className = "modal-dot";
   modalDotsContainer.append(modalDot2)
 
+  let modalDot3 = document.createElement("div");
+  modalDot3.className = "modal-dot";
+  modalDotsContainer.append(modalDot3)
+
+
   let modalX = document.createElement("img");
   modalX.className = "modal-X";
   modalX.src = "assets/img/x.svg";
-  // modalX.attr("src", "assets/img/x.svg");  
   modal.append(modalX); 
 
 
@@ -172,13 +170,6 @@ $(document).ready(function() {
 
 
   function firstHFCard() {
-
-
-
-
-    //masonry bg for modal
-
-
 
     // if from closeup card special case 
 
@@ -224,12 +215,6 @@ $(document).ready(function() {
     }
 
 
-    // unhide masonry
-    // reset item-main position into masonry grid 
-
-
-
-
 
     // global things that need to happen
 
@@ -261,7 +246,7 @@ $(document).ready(function() {
     // this is the first step
     $(modalDot1).addClass("modal-dot-active");
     $(modalDot2).removeClass("modal-dot-active");
-    $(".modal-content-cards").css("margin-left", "100%")
+    $(".modal-content-cards").css("margin-left", "200%")
 
     // pointer animation
     $(".handSvg").css("position", "absolute");
@@ -274,32 +259,14 @@ $(document).ready(function() {
 
 
 
-
   }
-
-  let modalCloseup = document.createElement("div");
-  modalCloseup.className = "modal-closeup"
-  masonryBg.append(modalCloseup);
-  $(modalCloseup).css("opacity", "0");
-  $(modalCloseup).hide();
-
-
-  
-  let modalCloseupLeft = document.createElement("div");
-  modalCloseupLeft.className = "modal-closeup-left";
-  modalCloseup.append(modalCloseupLeft);
-
-  let modalCloseupRight = document.createElement("div");
-  modalCloseupRight.className = "modal-closeup-right";
-  modalCloseup.append(modalCloseupRight);
-
 
 
   function secondHFCard() {
      // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
     $(modalDot2).addClass("modal-dot-active");  
-    $(".modal-content-cards").css("margin-left", "-100%")
+    $(".modal-content-cards").css("margin-left", "0%")
 
     var scaleUp = anime({
       targets: '.masonry',
@@ -338,11 +305,30 @@ $(document).ready(function() {
 
   }
 
-  function secondHFCard2() {
+  // closeup for animation
+  let modalCloseup = document.createElement("div");
+  modalCloseup.className = "modal-closeup"
+  masonryBg.append(modalCloseup);
+  $(modalCloseup).css("opacity", "0");
+  $(modalCloseup).hide();
+
+
+  
+  // let modalCloseupLeft = document.createElement("div");
+  // modalCloseupLeft.className = "modal-closeup-left";
+  // modalCloseup.append(modalCloseupLeft);
+
+  // let modalCloseupRight = document.createElement("div");
+  // modalCloseupRight.className = "modal-closeup-right";
+  // modalCloseup.append(modalCloseupRight);
+
+
+
+  function secondCloseupCard() {
      // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
     $(modalDot2).addClass("modal-dot-active");  
-    $(".modal-content-cards").css("margin-left", "-100%")
+    $(".modal-content-cards").css("margin-left", "0%")
 
     // hide masonry
 
@@ -413,9 +399,85 @@ $(document).ready(function() {
   }
 
 
+  let modalBoardRep1 = document.createElement("div");
+  modalBoardRep1.className = "modal-board-rep-1"
 
 
-  // customize for the hf 
+
+  function thirdHFCard() {
+     // modal dot transition
+    $(modalDot3).addClass("modal-dot-active");  
+    $(modalDot2).removeClass("modal-dot-active");  
+    $(".modal-content-cards").css("margin-left", "-200%")
+
+
+    $(".item-main").css("animation-name", "null")
+    $(".item-main").css("background-color", "rgba(255,255,255,0)")
+
+
+    //remove the save button 
+    $(modalSave).remove();
+
+
+    // hide masonry grid 
+    var scaleDownThird = anime({
+      targets: '.masonry',
+      scale: 1,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+    scaleDownThird.play();
+
+    $(".item").not(".item-main").css("opacity", "0");
+
+
+    // make board rep
+
+    $(".item-main").addClass("item-board");
+
+    var toBoard = anime({
+      targets: '.item-main',
+      translateX: -40,
+      translateY: -16,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+
+
+
+    var scaleDownThirdPin = anime({
+      targets: '.masonry',
+      scale: 1,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+    scaleDownThird.play();
+
+
+    $(".modal-save").css("animation-name", "buttonClickedHF");
+    $(".modal-save").css("animation-duration", "1.5s");
+    $(".modal-save").css("animation-iteration-count", "infinite");
+    $(".modal-save").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
+
+
+    $(".handSvg").css("top", "28%");
+    $(".handSvg").css("left", "64%");
+    $(".handSvg").css("animation-name", "clicking");
+    $(".handSvg").css("animation-duration", "1.5s");
+    $(".handSvg").css("animation-iteration-count", "infinite");
+    $(".handSvg").css("animation-direction", "normal");
+
+
+
+  }
+
+
+
+
+  // customize animation for the hf 
 
   if ($('body').is('.homefeedPage')) {
 
@@ -437,8 +499,16 @@ $(document).ready(function() {
 
   }
 
+  // button nav inside the modal
 
   $(".modal-button-1").click(function() {
+    thirdHFCard();
+
+  });
+
+
+
+  $(".modal-button-2").click(function() {
    $(modal).hide()
 
 
@@ -480,7 +550,7 @@ $(document).ready(function() {
 
     $(".closeupImage").css('background-image', image);  
 
-    secondHFCard2();
+    secondCloseupCard();
 
 
     // localStorage.setItem("imageURL", image);
