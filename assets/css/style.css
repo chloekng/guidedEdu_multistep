@@ -552,6 +552,11 @@ h3 {
   right: -20px;
 }
 
+.item-closeup {
+  border-radius: 8px 0px 0px 8px;
+  transition:border-radius var(--easeInOut) var(--medium);
+}
+
 .item-board {
   border-radius: 12px 0px 0px 12px;
   transition: border-radius var(--easeInOut) var(--instant);
@@ -572,7 +577,7 @@ h3 {
   height: 40px;
   position: absolute;
   left: 144px;
-  top: 46px;
+  top: 50px;
   transform: scale(0);
 }
 
@@ -583,7 +588,7 @@ h3 {
   height: 41px;
   position: absolute;
   left: 144px;
-  top: 85px;
+  top: 89px;
   transform: scale(0);
 }
 
@@ -592,6 +597,7 @@ h3 {
   width: 160px;
   height: 160px;
   left: 44px;
+  top: 4px;
 }
 
 .modal-board-name {

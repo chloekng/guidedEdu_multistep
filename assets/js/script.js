@@ -336,15 +336,17 @@ $(document).ready(function() {
     $(".item-main").css("animation-name", "null");
     $(".item-main").css("background-color", "rgba(255,255,255,.8");
 
-    var scaleUpCloseup = anime({
+    var toCloseup = anime({
       targets: '.item-main',
       translateX: -40,
-      translateY: 4,
+      translateY: 0,
       easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
 
-    scaleUpCloseup.play();
+    toCloseup.play();
+
+    $(".item-main").addClass("item-closeup");
 
     // append closeup to modalCloseup
 
@@ -359,7 +361,6 @@ $(document).ready(function() {
       easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
-
 
 
     scaleUpModalCloseup.play();
@@ -478,7 +479,7 @@ $(document).ready(function() {
     toBoard
       .add({
         targets: '.item-main',
-        translateY: -12,
+        translateY: -8,
         translateX: -31,
       })
       .add({
@@ -491,7 +492,7 @@ $(document).ready(function() {
       }, '-=420')
       .add({
         targets: '.modal-board-name',
-        translateY: -20,
+        translateY: -16,
         opacity: [0, 1]
       }, '-=420');
 
