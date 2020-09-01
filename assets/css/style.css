@@ -548,30 +548,67 @@ h3 {
 
 
 .item-main .modal-save {
-
   top: -6px;
   right: -20px;
 }
 
 .item-board {
   border-radius: 12px 0px 0px 12px;
-  transition: border-radius var(--easeInOut) var(--short);
+  transition: border-radius var(--easeInOut) var(--instant);
   width: 80px;
+  background-color: rgba(255,255,255,.9);
+
 }
- 
+
+/*.modal-board {
+  width: 90p ;
+
+}*/
+
+.modal-board-rep-1 {
+  border-radius: 0px 12px 0px 0px;
+  border: 1px solid rgba(255,255,255,.6); 
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 144px;
+  top: 46px;
+  transform: scale(0);
+}
+
+.modal-board-rep-2 {
+  border-radius: 0px 0px 12px 0px;
+  border: 1px solid rgba(255,255,255,.6); 
+  width: 40px;
+  height: 41px;
+  position: absolute;
+  left: 144px;
+  top: 85px;
+  transform: scale(0);
+}
+
+.starburst {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  left: 44px;
+}
+
+.modal-board-name {
+  font-size: 12px;
+  font-weight: 450;
+  text-align: left;
+  color: white;
+  position: absolute;
+  left: 68px;
+  bottom: 0px;
+  opacity: 0;
+
+}
 
 
 
 /*ANIMATION*/
-
-
-/*@keyframes clicking {
-  0%{transform: scale(1) }
-  30%{transform: scale(1) }
-  50%{transform: scale(1.1) }
-  90%{transform: scale(1) }
-  100% {transform: scale(1) }
-}*/
 
 @keyframes clicking {
   0%{transform: scale(1)}

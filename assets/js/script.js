@@ -313,17 +313,6 @@ $(document).ready(function() {
   $(modalCloseup).hide();
 
 
-  
-  // let modalCloseupLeft = document.createElement("div");
-  // modalCloseupLeft.className = "modal-closeup-left";
-  // modalCloseup.append(modalCloseupLeft);
-
-  // let modalCloseupRight = document.createElement("div");
-  // modalCloseupRight.className = "modal-closeup-right";
-  // modalCloseup.append(modalCloseupRight);
-
-
-
   function secondCloseupCard() {
      // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
@@ -399,8 +388,44 @@ $(document).ready(function() {
   }
 
 
+  // board reps for animation
+
+  let modalBoard = document.createElement("div");
+  modalBoard.className = "modal-board";
+  masonryBg.append(modalBoard);
+
   let modalBoardRep1 = document.createElement("div");
-  modalBoardRep1.className = "modal-board-rep-1"
+  modalBoardRep1.className = "modal-board-rep-1";
+  masonryBg.append(modalBoardRep1);
+
+
+  let modalBoardRep2 = document.createElement("div");
+  modalBoardRep2.className = "modal-board-rep-2";
+  masonryBg.append(modalBoardRep2);
+
+  let starburst = document.createElement("div");
+  starburst.className = "starburst";
+  masonryBg.append(starburst);
+
+  // lottie starburst
+
+  let starburstAnimate = lottie.loadAnimation({
+    container: starburst, // the dom element that will contain the animation
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'https://assets1.lottiefiles.com/packages/lf20_hbkV3h.json' // the path to the animation json
+  });
+
+
+  // animate board name up 
+  let modalBoardName = document.createElement("div");
+  modalBoardName.className = "modal-board-name";
+  masonryBg.append(modalBoardName);
+  modalBoardName.innerHTML = "Recipes";
+
+
+
 
 
 
@@ -412,67 +437,77 @@ $(document).ready(function() {
 
 
     $(".item-main").css("animation-name", "null")
-    $(".item-main").css("background-color", "rgba(255,255,255,0)")
+    // $(".item-main").css("background-color", "rgba(255,255,255,)")
 
 
     //remove the save button 
     $(modalSave).remove();
 
 
-    // hide masonry grid 
-    var scaleDownThird = anime({
+    // scale down & hide masonry
+    var scaleDownMasonry = anime({
       targets: '.masonry',
       scale: 1,
       easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
 
-    scaleDownThird.play();
+    scaleDownMasonry.play();
 
     $(".item").not(".item-main").css("opacity", "0");
+
+    // remove hand
+
+    handSvg.remove();
 
 
     // make board rep
 
+    // Create a timeline with default parameters
+    var toBoard = anime.timeline({
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+      duration: 750
+    });
+
+
+    // border-radius & width transition with CSS is smoother
+
     $(".item-main").addClass("item-board");
 
-    var toBoard = anime({
-      targets: '.item-main',
-      translateX: -40,
-      translateY: -16,
-      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+    // use animejs timeline to stagger the animations that make up the board rep
+    toBoard
+      .add({
+        targets: '.item-main',
+        translateY: -12,
+        translateX: -31,
+      })
+      .add({
+        targets: '.modal-board-rep-1',
+        scale: [0, 1]
+      }, '-=420')
+      .add({
+        targets: '.modal-board-rep-2',
+        scale: [0, 1]
+      }, '-=420')
+      .add({
+        targets: '.modal-board-name',
+        translateY: -20,
+        opacity: [0, 1]
+      }, '-=420');
 
-    });
+    toBoard.play();
 
+    // play lottie
 
-
-
-    var scaleDownThirdPin = anime({
-      targets: '.masonry',
-      scale: 1,
-      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
-
-    });
-
-    scaleDownThird.play();
-
-
-    $(".modal-save").css("animation-name", "buttonClickedHF");
-    $(".modal-save").css("animation-duration", "1.5s");
-    $(".modal-save").css("animation-iteration-count", "infinite");
-    $(".modal-save").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
-
-
-    $(".handSvg").css("top", "28%");
-    $(".handSvg").css("left", "64%");
-    $(".handSvg").css("animation-name", "clicking");
-    $(".handSvg").css("animation-duration", "1.5s");
-    $(".handSvg").css("animation-iteration-count", "infinite");
-    $(".handSvg").css("animation-direction", "normal");
+    setTimeout(function(){ 
+      starburstAnimate.play()
+    }, 1900);
 
 
+    
 
   }
+
 
 
 
