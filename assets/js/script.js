@@ -171,12 +171,9 @@ $(document).ready(function() {
 
   function firstHFCard() {
 
-    // if from closeup card special case 
 
-    if ($(modalCloseup).is(":visible")) {
-
-      $(".item").not(".item-main").css("opacity", "1");
-
+    if ($(modalDot2).hasClass("modal-dot-active")) {
+      modalSave.remove();
 
       var scaleDownModalCloseup = anime({
         targets: '.modal-closeup',
@@ -200,29 +197,49 @@ $(document).ready(function() {
 
       });
 
-    scaleDownCloseup.play();
+      scaleDownCloseup.play();
+
+      $(".item-main").removeClass("item-closeup");
 
 
 
 
+    } else if ($(modalDot3).hasClass("modal-dot-active")) {
+      $(modalDot3).removeClass("modal-dot-active");
 
-    } else {
+
+      // hide modal board reps
+      var hideModalBoardRep = anime({
+        targets: '.modal-board-rep-1, .modal-board-rep-2',
+        scale: 0,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+
+      });
+
+      hideModalBoardRep.play();
 
 
+      // hide board name 
+      var hideModalBoardName = anime({
+        targets: '.modal-board-name',
+        translateY: 16,
+        opacity: [1,0],
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+      })
 
+
+      hideModalBoardName.play();
+
+
+      // re append the hand!
+
+      $(".modal").append(handSvg);
 
 
     }
 
-
-
-    // global things that need to happen
-
-    if ($(modalDot2).hasClass("modal-dot-active")) {
-      modalSave.remove()
-
-
-    }
 
     var scaleDown = anime({
       targets: '.masonry',
@@ -233,6 +250,20 @@ $(document).ready(function() {
     });
 
     scaleDown.play();
+
+    $(".item-main").removeClass("item-board");
+
+    $(".item").not(".item-main").css("opacity", "1");
+
+    var toMasonry = anime({
+      targets: '.item-main',
+      translateX: 0,
+      translateY: 0,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+    });
+
+    toMasonry.play();
 
 
     // reset pin scale up and down animation 
@@ -263,6 +294,94 @@ $(document).ready(function() {
 
 
   function secondHFCard() {
+
+    // if from the second closeup card 
+
+
+    if ($(modalDot2).hasClass("modal-dot-active")) {
+
+      var toMasonry = anime({
+        targets: '.item-main',
+        translateX: 0,
+        translateY: 0,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+      });
+
+      toMasonry.play();
+
+      var scaleDownModalCloseup = anime({
+        targets: '.modal-closeup',
+        opacity: 0,
+        scale: 1,
+        translateX: 12,
+        translateY: 14,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+
+      });
+
+      scaleDownModalCloseup.play();
+
+
+      $(".item-main").removeClass("item-closeup");
+
+      // show masonry
+
+
+
+    } else if ($(modalDot3).hasClass("modal-dot-active")) {
+      $(modalDot3).removeClass("modal-dot-active");
+
+      $(".item-main").removeClass("item-board");
+
+      var toMasonry = anime({
+        targets: '.item-main',
+        translateX: 0,
+        translateY: 0,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+      });
+
+      toMasonry.play();
+
+
+      // hide modal board reps
+      var hideModalBoardRep = anime({
+        targets: '.modal-board-rep-1, .modal-board-rep-2',
+        scale: 0,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+
+      });
+
+      hideModalBoardRep.play();
+
+
+      // hide board name 
+      var hideModalBoardName = anime({
+        targets: '.modal-board-name',
+        translateY: 16,
+        opacity: [1,0],
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+      })
+
+
+      hideModalBoardName.play();
+
+
+      // re append the hand!
+
+      $(".modal").append(handSvg);
+
+
+
+
+    }
+
+
+
      // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
     $(modalDot2).addClass("modal-dot-active");  
@@ -314,6 +433,50 @@ $(document).ready(function() {
 
 
   function secondCloseupCard() {
+
+    // if from the third step
+    if ($(modalDot3).hasClass("modal-dot-active")) {
+      $(modalDot3).removeClass("modal-dot-active");
+
+      // item main needs to remove item-board class
+      $(".item-main").removeClass("item-board");
+
+      // hide modal board reps
+      var hideModalBoardRep = anime({
+        targets: '.modal-board-rep-1, .modal-board-rep-2',
+        scale: 0,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+
+      });
+
+      hideModalBoardRep.play();
+
+
+      // hide board name 
+      var hideModalBoardName = anime({
+        targets: '.modal-board-name',
+        translateY: 16,
+        opacity: [1,0],
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+      })
+
+
+      hideModalBoardName.play();
+
+
+      // re append the hand!
+
+      $(".modal").append(handSvg);
+
+
+
+
+
+    } 
+
+
      // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
     $(modalDot2).addClass("modal-dot-active");  
@@ -348,7 +511,7 @@ $(document).ready(function() {
 
     $(".item-main").addClass("item-closeup");
 
-    // append closeup to modalCloseup
+    // show and scale up modal closeup
 
     $(modalCloseup).show();
 
@@ -375,6 +538,8 @@ $(document).ready(function() {
     $(".modal-save").css("animation-duration", "1.5s");
     $(".modal-save").css("animation-iteration-count", "infinite");
     $(".modal-save").css("animation-timing-function", "cubic-bezier(.63, .09, .3, .43");
+
+
 
 
     $(".handSvg").css("top", "28%");
@@ -427,22 +592,41 @@ $(document).ready(function() {
 
 
 
-
-
-
   function thirdHFCard() {
-     // modal dot transition
+
+
+    // modal dot transition
     $(modalDot3).addClass("modal-dot-active");  
     $(modalDot2).removeClass("modal-dot-active");  
     $(".modal-content-cards").css("margin-left", "-200%")
 
 
-    $(".item-main").css("animation-name", "null")
+    // remove scale up and down item main
+    $(".item-main").css("animation-name", "none")
     // $(".item-main").css("background-color", "rgba(255,255,255,)")
 
 
     //remove the save button 
     $(modalSave).remove();
+
+
+    // if closeupModal is up, hide it
+
+    $(modalCloseup).hide();
+
+    var scaleDownModalCloseup = anime({
+      targets: '.modal-closeup',
+      opacity: 0,
+      scale: 1,
+      translateX: 12,
+      translateY: 14,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+      duration: 85
+
+    });
+
+
+    scaleDownModalCloseup.play();
 
 
     // scale down & hide masonry
@@ -458,8 +642,13 @@ $(document).ready(function() {
     $(".item").not(".item-main").css("opacity", "0");
 
     // remove hand
-
     handSvg.remove();
+
+
+    // border-radius & width transition with CSS is smoother
+
+    $(".item-main").removeClass("item-closeup");
+    $(".item-main").addClass("item-board");
 
 
     // make board rep
@@ -470,10 +659,6 @@ $(document).ready(function() {
       duration: 750
     });
 
-
-    // border-radius & width transition with CSS is smoother
-
-    $(".item-main").addClass("item-board");
 
     // use animejs timeline to stagger the animations that make up the board rep
     toBoard
@@ -501,10 +686,8 @@ $(document).ready(function() {
     // play lottie
 
     setTimeout(function(){ 
-      starburstAnimate.play()
+      starburstAnimate.goToAndPlay(0)
     }, 1900);
-
-
     
 
   }
@@ -559,22 +742,6 @@ $(document).ready(function() {
 
 
 
-  $(modalDot1).click(function() {
-
-
-    firstHFCard();    
-
-  })
-
-
-  $(modalDot2).click(function() {
-
-
-    secondHFCard();    
-
-  })
-
-
 
   // grid item to closeup
   $(".grid-item").click(function() {
@@ -601,7 +768,9 @@ $(document).ready(function() {
     $(".closeupContainer").hide();
     $(".back").hide()
 
-    firstHFCard();
+    secondHFCard();
+
+    // firstHFCard();
 
 
 

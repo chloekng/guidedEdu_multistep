@@ -53,7 +53,6 @@ body {
   display: flex;
   flex-direction: row;
   padding: 16px;
-  z-index: 10000;
   margin-bottom: 80px;
 
 }
@@ -559,9 +558,9 @@ h3 {
 
 .item-board {
   border-radius: 12px 0px 0px 12px;
+  background: rgba(255,255,255,.9) !important;
   transition: border-radius var(--easeInOut) var(--instant);
   width: 80px;
-  background-color: rgba(255,255,255,.9);
 
 }
 
@@ -598,6 +597,7 @@ h3 {
   height: 160px;
   left: 44px;
   top: 4px;
+  z-index: 3000;
 }
 
 .modal-board-name {
