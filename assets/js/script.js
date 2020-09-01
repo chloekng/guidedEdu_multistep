@@ -310,6 +310,8 @@ $(document).ready(function() {
 
       toMasonry.play();
 
+      $(".modal-closeup").hide();
+
       var scaleDownModalCloseup = anime({
         targets: '.modal-closeup',
         opacity: 0,
@@ -326,7 +328,19 @@ $(document).ready(function() {
 
       $(".item-main").removeClass("item-closeup");
 
-      // show masonry
+      // masonry slide in 
+
+      var slideInMasonry = anime({
+        targets: '.item:not(.item-main)',
+        opacity: [0,1],
+        translateX: [-12, 0],
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+      });
+
+      slideInMasonry.play();
+
+      // $(".item").not(".item-main").css("opacity", "0");
 
 
 
@@ -375,6 +389,18 @@ $(document).ready(function() {
 
       $(".modal").append(handSvg);
 
+      // slide in masonry
+      var slideInMasonry = anime({
+        targets: '.item:not(.item-main)',
+        opacity: [0,1],
+        translateX: [-12, 0],
+        translateY: [-14, 0],
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+      });
+
+      slideInMasonry.play();
+
 
 
 
@@ -382,7 +408,7 @@ $(document).ready(function() {
 
 
 
-     // modal dot transition
+    // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
     $(modalDot2).addClass("modal-dot-active");  
     $(".modal-content-cards").css("margin-left", "0%")
@@ -471,9 +497,6 @@ $(document).ready(function() {
       $(".modal").append(handSvg);
 
 
-
-
-
     } 
 
 
@@ -482,16 +505,16 @@ $(document).ready(function() {
     $(modalDot2).addClass("modal-dot-active");  
     $(".modal-content-cards").css("margin-left", "0%")
 
-    // hide masonry
+    // scale up & hide masonry
 
-    var scaleUp = anime({
+    var scaleUpMasonry = anime({
       targets: '.masonry',
       scale: 2.5,
       easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
 
-    scaleUp.play();
+    scaleUpMasonry.play();
 
     $(".item").not(".item-main").css("opacity", "0");
 
