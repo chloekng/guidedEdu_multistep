@@ -222,14 +222,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 8px;
+  height: 6px;
   position: absolute;
   margin-top: 20px;
 }
 
 .modal-dot {
-  height: 8px;
-  width: 8px;
+  height: 6px;
+  width: 6px;
   background-color: rgba(255,255,255,.4);
   border-radius: 1000px;
   margin: 0px 4px 0px 4px;
@@ -253,10 +253,10 @@ body {
   column-gap: 4px;
   width: 120%;
   height: 120%;
-  margin-top: -13%;
+  margin-top: -6%;
   margin-left: -10%;
-  padding-top: 14%;
-
+/*  padding-top: 14%;
+*/
 }
 
 
@@ -503,7 +503,7 @@ h3 {
   height: 116px;*/
   width: 88px;
   height: 48px;
-  border: 1px solid rgba(255,255,255,.8);
+  border: 1px solid rgba(255,255,255,1);
   border-radius: 0px 8px 0px 0px;
 /*  margin-left: -5;
   display: flex;
@@ -558,7 +558,7 @@ h3 {
 
 .item-board {
   border-radius: 12px 0px 0px 12px;
-  background: rgba(255,255,255,.9) !important;
+  background: rgba(204,227,250,1) !important;
   transition: border-radius var(--easeInOut) var(--instant);
   width: 80px;
 
@@ -571,9 +571,9 @@ h3 {
 
 .modal-board-rep-1 {
   border-radius: 0px 12px 0px 0px;
-  border: 1px solid rgba(255,255,255,.6); 
+  border: 2px solid rgba(204,227,250,1); 
   width: 40px;
-  height: 40px;
+  height: 41px;
   position: absolute;
   left: 144px;
   top: 50px;
@@ -582,7 +582,7 @@ h3 {
 
 .modal-board-rep-2 {
   border-radius: 0px 0px 12px 0px;
-  border: 1px solid rgba(255,255,255,.6); 
+  border: 2px solid rgba(204,227,250,1); 
   width: 40px;
   height: 41px;
   position: absolute;
