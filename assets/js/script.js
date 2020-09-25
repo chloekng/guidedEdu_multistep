@@ -151,9 +151,9 @@ $(document).ready(function() {
     if (i == 6) {
       modalMasonryPin.className = "item item-main"
       modalMasonryPin.id = "item-main"
-    } else if (i == 1 || i == 4) {
+    } else if (i == 4) {
       modalMasonryPin.className = "item item-medium";
-    } else if (i == 3 || i == 2 || i == 5 || i == 9 ) {
+    } else if (i == 3 || i == 2 || i == 5 || i == 1) {
       modalMasonryPin.className = "item item-short";
     } else {
       modalMasonryPin.className = "item";
@@ -217,6 +217,9 @@ $(document).ready(function() {
 
       scaleDownCloseup.play();
 
+
+      //REPLACE WITH ANIME
+
       $(".item-main").removeClass("item-closeup");
 
 
@@ -269,6 +272,8 @@ $(document).ready(function() {
 
     scaleDown.play();
 
+    //REPLACE WITH ANIME
+
     $(".item-main").removeClass("item-board");
 
     $(".item").not(".item-main").css("opacity", "1");
@@ -283,6 +288,8 @@ $(document).ready(function() {
 
     toMasonry.play();
 
+
+    //REPLACE WITH ANIME
 
     // reset pin scale up and down animation 
 
@@ -348,6 +355,8 @@ $(document).ready(function() {
       scaleDownModalCloseup.play();
 
 
+      //REPLACE WITH ANIME
+
       $(".item-main").removeClass("item-closeup");
 
       // masonry slide in 
@@ -367,7 +376,11 @@ $(document).ready(function() {
 
 
     } else if ($(modalDot3).hasClass("modal-dot-active")) {
+
+
       $(modalDot3).removeClass("modal-dot-active");
+
+      //REPLACE WITH ANIME
 
       $(".item-main").removeClass("item-board");
 
@@ -428,7 +441,7 @@ $(document).ready(function() {
 
     }
 
-
+    //REPLACE WITH ANIME
 
     // modal dot transition
     $(modalDot1).removeClass("modal-dot-active");  
@@ -438,14 +451,18 @@ $(document).ready(function() {
     var scaleUp = anime({
       targets: '.masonry',
       scale: 2.5,
-      translateY: 16,
+      translateY: 10,
       easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
 
 
 
+
     scaleUp.play();
+
+
+    //REPLACE WITH ANIME
 
 
     $(".item-main").css("animation-name", "null")
@@ -454,6 +471,9 @@ $(document).ready(function() {
 
     //append the save button 
     $(".item-main").append(modalSave);
+
+
+    //REPLACE WITH ANIME
 
 
     $(".modal-save").css("animation-name", "buttonClickedHF");
@@ -477,6 +497,8 @@ $(document).ready(function() {
   let modalCloseup = document.createElement("div");
   modalCloseup.className = "modal-closeup"
   masonryBg.append(modalCloseup);
+
+  //REPLACE WITH ANIME
   $(modalCloseup).css("opacity", "0");
   $(modalCloseup).hide();
 
@@ -485,6 +507,8 @@ $(document).ready(function() {
 
     // if from the third step
     if ($(modalDot3).hasClass("modal-dot-active")) {
+
+      //REPLACE WITH ANIME
       $(modalDot3).removeClass("modal-dot-active");
 
       // item main needs to remove item-board class
@@ -539,6 +563,8 @@ $(document).ready(function() {
 
     scaleUpMasonry.play();
 
+    //REPLACE WITH ANIME
+
     $(".item").not(".item-main").css("opacity", "0");
 
 
@@ -548,12 +574,14 @@ $(document).ready(function() {
     var toCloseup = anime({
       targets: '.item-main',
       translateX: -40,
-      translateY: 0,
+      translateY: 10,
       easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
 
     });
 
     toCloseup.play();
+
+    //REPLACE WITH ANIME
 
     $(".item-main").addClass("item-closeup");
 
@@ -579,6 +607,7 @@ $(document).ready(function() {
 
     $(modalCloseup).append(modalSave);
 
+    //REPLACE WITH ANIME
 
     $(".modal-save").css("animation-name", "buttonClickedHF");
     $(".modal-save").css("animation-duration", "1.5s");
@@ -643,6 +672,9 @@ $(document).ready(function() {
   function thirdHFCard() {
 
 
+    //REPLACE WITH ANIME
+
+
     // modal dot transition
     $(modalDot3).addClass("modal-dot-active");  
     $(modalDot2).removeClass("modal-dot-active");  
@@ -652,29 +684,6 @@ $(document).ready(function() {
     // remove scale up and down item main
     $(".item-main").css("animation-name", "none")
     // $(".item-main").css("background-color", "rgba(255,255,255,)")
-
-
-    //remove the save button 
-    $(modalSave).remove();
-
-
-    // if closeupModal is up, hide it
-
-    $(modalCloseup).hide();
-
-    var scaleDownModalCloseup = anime({
-      targets: '.modal-closeup',
-      opacity: 0,
-      scale: 1,
-      translateX: 12,
-      translateY: 14,
-      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
-      duration: 85
-
-    });
-
-
-    scaleDownModalCloseup.play();
 
 
     // scale down & hide masonry
@@ -687,54 +696,132 @@ $(document).ready(function() {
 
     scaleDownMasonry.play();
 
-    $(".item").not(".item-main").css("opacity", "0");
 
-    // remove hand
-    // handSvg.remove();
+    //remove the save button 
+    $(modalSave).remove();
 
-    // border-radius & width transition with CSS is smoother
 
     $(".item-main").removeClass("item-closeup");
     $(".item-main").addClass("item-board");
 
 
-    // make board rep
+    // if coming from second closeup step (via checking if modal closeup is visible), have different set of events 
 
-    // Create a timeline with default parameters
-    var toBoard = anime.timeline({
-      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
-      duration: 750
-    });
+    if ($(modalCloseup).is(':visible')) {
+
+      $(modalCloseup).hide();
+
+      var scaleDownModalCloseup = anime({
+        targets: '.modal-closeup',
+        opacity: 0,
+        scale: 1,
+        translateX: 12,
+        translateY: 14,
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 85
+
+      });
 
 
-    // use animejs timeline to stagger the animations that make up the board rep
-    toBoard
-      .add({
-        targets: '.item-main',
-        translateY: -19,
-        translateX: -31,
-      })
-      .add({
-        targets: '.modal-board-rep-1',
-        scale: [0, 1]
-      }, '-=420')
-      .add({
-        targets: '.modal-board-rep-2',
-        scale: [0, 1]
-      }, '-=420')
-      .add({
-        targets: '.modal-board-name',
-        translateY: -16,
-        opacity: [0, 1]
-      }, '-=420');
+      scaleDownModalCloseup.play();
 
-    toBoard.play();
+            // Create a timeline with default parameters
+      var toBoard = anime.timeline({
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 750
+      });
 
-    // play lottie
 
-    // setTimeout(function(){ 
-    //   starburstAnimate.goToAndPlay(0)
-    // }, 1900);
+      // use animejs timeline to stagger the animations that make up the board rep
+      toBoard
+        .add({
+          targets: '.item-main',
+          translateY: -9,
+          translateX: -31,
+        })
+        .add({
+          targets: '.modal-board-rep-1',
+          scale: [0, 1]
+        }, '-=420')
+        .add({
+          targets: '.modal-board-rep-2',
+          scale: [0, 1]
+        }, '-=420')
+        .add({
+          targets: '.modal-board-name',
+          translateY: -16,
+          opacity: [0, 1]
+        }, '-=420');
+
+      toBoard.play();
+
+
+
+
+    } else {
+
+
+
+
+      //REPLACE WITH ANIME
+
+      $(".item").not(".item-main").css("opacity", "0");
+
+      // remove hand
+      // handSvg.remove();
+
+      // border-radius & width transition with CSS is smoother
+
+
+
+
+
+      // make board rep
+
+      // Create a timeline with default parameters
+      var toBoard = anime.timeline({
+        easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)',
+        duration: 750
+      });
+
+
+      // use animejs timeline to stagger the animations that make up the board rep
+      toBoard
+        .add({
+          targets: '.item-main',
+          translateY: -19,
+          translateX: -31,
+        })
+        .add({
+          targets: '.modal-board-rep-1',
+          scale: [0, 1]
+        }, '-=420')
+        .add({
+          targets: '.modal-board-rep-2',
+          scale: [0, 1]
+        }, '-=420')
+        .add({
+          targets: '.modal-board-name',
+          translateY: -16,
+          opacity: [0, 1]
+        }, '-=420');
+
+      toBoard.play();
+
+      // play lottie
+
+      // setTimeout(function(){ 
+      //   starburstAnimate.goToAndPlay(0)
+      // }, 1900);
+
+
+
+
+    }
+
+
+
+ 
     
 
   }
