@@ -544,7 +544,36 @@ $(document).ready(function() {
       // $(".modal").append(handSvg);
 
 
-    } 
+    } else if ($(modalDot2).hasClass("modal-dot-active")) {
+      var toCloseup = anime({
+      targets: '.item-main',
+      translateX: -40,
+      translateY: 0,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+      });
+
+      toCloseup.play();
+
+
+
+    } else {
+
+      var toCloseup = anime({
+      targets: '.item-main',
+      translateX: -40,
+      translateY: 10,
+      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
+
+      });
+
+      toCloseup.play();
+
+
+
+
+
+    }
 
 
      // modal dot transition
@@ -571,15 +600,6 @@ $(document).ready(function() {
     $(".item-main").css("animation-name", "null");
     $(".item-main").css("background-color", "rgba(255,255,255,.8");
 
-    var toCloseup = anime({
-      targets: '.item-main',
-      translateX: -40,
-      translateY: 10,
-      easing: 'cubicBezier(0.66, 0.025, 0.33, 0.975)'
-
-    });
-
-    toCloseup.play();
 
     //REPLACE WITH ANIME
 
